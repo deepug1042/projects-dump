@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Segments</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+  <div class="card shadow p-4">
+    <h2 class="mb-4 text-center text-primary">📊 Customer Segmentation Visuals</h2>
+
+    <div class="text-center">
+      <img src="{{ image }}" alt="Cluster Plot" class="img-fluid">
+    </div>
+
+    <h5 class="text-center mt-4">Segment-wise Distribution</h5>
+    <div class="row">
+      {% for segment in segments %}
+      <div class="col-md-4 mt-4">
+        <h6 class="text-center">Segment {{ segment }}</h6>
+        <img src="{{ url_for('static', filename='segment_' ~ segment ~ '_plot.png') }}" alt="Segment {{ segment }}" class="img-fluid">
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
